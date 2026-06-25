@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================
+     INVESTMENT BEGINNERS — Página de apresentação / pré-venda
+     Funil: Anúncio (tráfego pago) → ESTA página → Checkout
+     >>> EDITE SÓ O QUE ESTÁ MARCADO COM  ★ EDITAR ★
+     ============================================================ -->
+
+<title>Investment Beginners — O Guia Completo para Começar a Investir do Zero</title>
+<meta name="description" content="Aprenda a investir do zero, mesmo sem nunca ter guardado dinheiro. 11 capítulos em linguagem simples, do primeiro real à sua primeira carteira. Acesso imediato e pagamento seguro.">
+<meta name="robots" content="index, follow">
+
+<!-- ★ EDITAR ★ : URL final desta página -->
+<link rel="canonical" href="https://investmentbeginners.com.br/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Investment Beginners — Comece a investir do zero">
+<meta property="og:description" content="O guia completo para sair do zero e fazer seu dinheiro render. Linguagem simples, acesso imediato.">
+<!-- ★ EDITAR ★ : use a URL absoluta do seu domínio -->
+<meta property="og:image" content="https://investmentbeginners.com.br/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#0A1A33">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ============================================================
+     ★ EDITAR ★  PIXELS (tráfego pago) — cole Meta Pixel / Google Ads aqui.
+     Os botões de compra já disparam InitiateCheckout / begin_checkout.
+     ============================================================ -->
+
+<style>
+  :root{
+    --ink:#0A1A33; --ink-2:#0E2342; --ink-3:#07142a;
+    --emerald:#0E7A4E; --emerald-2:#16A75E; --emerald-3:#1FCB72;
+    --gold:#E8B923; --gold-2:#F6D257; --gold-deep:#B8860B;
+    --cream:#F4F1E4; --paper:#FBFAF3; --white:#fff;
+    --tx-dark:#16202F; --tx-mut:#5C6675;
+    --tx-light:#EAF0F1; --tx-light-mut:rgba(234,240,241,.74);
+    --r:16px; --shadow:0 24px 60px -24px rgba(7,20,42,.55);
+    --maxw:1140px; --pad:clamp(20px,5vw,40px);
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:"Manrope",system-ui,sans-serif;color:var(--tx-dark);background:var(--paper);
+    line-height:1.6;overflow-x:hidden;font-size:clamp(15px,1.05vw,17px)}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+
+  .display{font-family:"Anton",sans-serif;font-weight:400;line-height:.96;letter-spacing:.5px;
+    text-transform:uppercase}
+  .eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep)}
+  .eyebrow.on-dark{color:var(--gold-2)}
+
+  /* ---------- Buttons ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;font-family:"Manrope";
+    font-weight:800;font-size:1.02rem;cursor:pointer;border:0;padding:1.05em 1.9em;border-radius:999px;
+    transition:transform .25s var(--ease),box-shadow .25s var(--ease);position:relative;overflow:hidden;
+    text-align:center;line-height:1.1}
+  .btn .arw{transition:transform .3s var(--ease)}
+  .btn:hover .arw{transform:translateX(4px)}
+  .btn-gold{background:linear-gradient(180deg,var(--gold-2),var(--gold));color:#1c1403;
+    box-shadow:0 14px 30px -10px rgba(232,185,35,.7),inset 0 1px 0 rgba(255,255,255,.5)}
+  .btn-gold::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,
+    rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s var(--ease)}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 22px 44px -12px rgba(232,185,35,.9)}
+  .btn-gold:hover::after{transform:translateX(120%)}
+  .btn-ghost{background:transparent;color:var(--tx-light);border:1.5px solid rgba(234,240,241,.35);font-weight:700}
+  .btn-ghost:hover{border-color:var(--gold-2);color:var(--gold-2)}
+  .btn-lg{font-size:1.12rem;padding:1.2em 2.3em}
+  .pulse{animation:pulse 2.6s var(--ease) infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 14px 30px -10px rgba(232,185,35,.7),inset 0 1px 0 rgba(255,255,255,.5)}
+    50%{box-shadow:0 14px 38px -8px rgba(232,185,35,.95),0 0 0 6px rgba(232,185,35,.16),inset 0 1px 0 rgba(255,255,255,.5)}}
+
+  /* ---------- Topbar ---------- */
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(10,26,51,.82);backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(232,185,35,.16)}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding-block:13px}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand .mono{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:var(--ink-2);
+    border:1.5px solid var(--gold);font-family:"Anton";color:var(--gold);font-size:1.05rem}
+  .brand .nm{color:#fff;font-family:"Anton";font-size:1.18rem;letter-spacing:1px;line-height:1}
+  .brand .nm small{display:block;font-family:"Manrope";font-weight:600;font-size:.56rem;letter-spacing:.28em;
+    color:var(--gold-2);margin-top:3px}
+  .topbar .btn{padding:.7em 1.3em;font-size:.9rem}
+  @media(max-width:560px){.topbar .btn .full{display:none}}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;color:var(--tx-light);
+    background:radial-gradient(120% 90% at 12% 8%,#123163 0%,var(--ink) 42%,var(--ink-3) 100%);overflow:hidden}
+  .hero::before{content:"";position:absolute;right:-10%;top:-10%;width:70%;height:120%;
+    background:radial-gradient(circle at 70% 40%,rgba(22,167,94,.34),transparent 60%);pointer-events:none}
+  .growth{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.55}
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;
+    gap:clamp(28px,4vw,56px);align-items:center;padding-block:clamp(44px,7vw,84px)}
+  .hero h1{font-size:clamp(2.3rem,6vw,4.3rem);color:#fff;margin:.5em 0 .42em}
+  .hero h1 .hl{color:var(--gold)} .hero h1 .grn{color:var(--emerald-3)}
+  .hero .lead{font-size:clamp(1.02rem,1.7vw,1.22rem);color:var(--tx-light-mut);max-width:30em;font-weight:500}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .reassure{display:flex;align-items:center;gap:9px;margin-top:16px;font-size:.84rem;
+    color:var(--tx-light-mut);font-weight:600}
+  .reassure svg{color:var(--emerald-3);flex:none}
+  .trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:22px;font-size:.86rem;
+    color:var(--tx-light-mut);font-weight:600}
+  .trust span{display:inline-flex;align-items:center;gap:7px}
+  .trust svg{flex:none;color:var(--gold-2)}
+
+  .hero-art{display:flex;justify-content:center;perspective:1600px}
+  .book{position:relative;width:min(82%,300px);aspect-ratio:912/1600;
+    transform:rotateY(-23deg) rotateX(4deg);transform-style:preserve-3d;
+    filter:drop-shadow(26px 34px 40px rgba(0,0,0,.55));animation:float 6.5s ease-in-out infinite}
+  .book img{width:100%;height:100%;object-fit:cover;border-radius:3px 8px 8px 3px}
+  .book::after{content:"";position:absolute;top:1.5%;right:-15px;width:16px;height:97%;
+    background:repeating-linear-gradient(90deg,#efece1,#efece1 1px,#cdc8ba 2px,#efece1 3px);
+    transform:rotateY(74deg);transform-origin:left center;border-radius:0 2px 2px 0}
+  .book::before{content:"";position:absolute;inset:0;border-radius:3px 8px 8px 3px;z-index:3;
+    background:linear-gradient(100deg,rgba(0,0,0,.4),rgba(0,0,0,.12) 7%,rgba(255,255,255,.16) 13%,transparent 28%);
+    pointer-events:none}
+  .badge-float{position:absolute;z-index:4;background:#fff;color:var(--ink);border-radius:13px;padding:11px 15px;
+    box-shadow:var(--shadow);font-weight:800;display:flex;align-items:center;gap:9px;font-size:.9rem;
+    animation:floatb 5.5s ease-in-out infinite}
+  .badge-float .ic{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;
+    background:linear-gradient(180deg,var(--gold-2),var(--gold));color:#1c1403;flex:none}
+  .badge-float small{display:block;font-weight:600;color:var(--tx-mut);font-size:.72rem}
+  .badge-1{left:-6%;top:13%}
+  .badge-2{right:-10%;bottom:15%;animation-delay:.8s}
+  @keyframes float{0%,100%{transform:translateY(0) rotateY(-23deg) rotateX(4deg)}
+    50%{transform:translateY(-12px) rotateY(-23deg) rotateX(4deg)}}
+  @keyframes floatb{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+  /* ---------- Stats strip ---------- */
+  .stats{background:var(--ink-3);color:var(--tx-light);border-top:1px solid rgba(232,185,35,.14)}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding-block:26px;text-align:center}
+  .stat .num{font-family:"Anton";font-size:clamp(1.5rem,3.4vw,2.1rem);color:var(--gold-2);line-height:1}
+  .stat .lab{font-size:.78rem;color:var(--tx-light-mut);font-weight:600;margin-top:4px}
+  @media(max-width:560px){.stats .wrap{grid-template-columns:repeat(2,1fr);gap:22px 12px}}
+
+  /* ---------- Section scaffold ---------- */
+  .sec{padding-block:clamp(56px,8vw,102px)}
+  .sec-dark{background:var(--ink);color:var(--tx-light)}
+  .sec-cream{background:var(--cream)}
+  .sec-head{max-width:680px;margin-bottom:clamp(34px,5vw,54px)}
+  .sec-head.center{margin-inline:auto;text-align:center}
+  .sec-head h2{font-size:clamp(1.9rem,4.4vw,3rem);margin:.42em 0 .35em;color:inherit}
+  .sec-dark .sec-head h2{color:#fff}
+  .sec-head p{color:var(--tx-mut);font-size:1.05rem;font-weight:500}
+  .sec-dark .sec-head p{color:var(--tx-light-mut)}
+  .em{color:var(--gold-deep)} .sec-dark .em{color:var(--gold-2)}
+
+  /* ---------- Pain ---------- */
+  .pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .pain-card{background:var(--paper);border:1px solid rgba(11,26,51,.08);border-radius:var(--r);padding:26px 24px;
+    box-shadow:0 1px 2px rgba(11,26,51,.04);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+  .pain-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px -18px rgba(11,26,51,.35)}
+  .pain-card .q{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;
+    background:rgba(232,185,35,.14);color:var(--gold-deep);font-family:"Anton";font-size:1.3rem;margin-bottom:16px}
+  .pain-card p{font-weight:600;color:var(--tx-dark)}
+  .pain-bridge{margin-top:38px;text-align:center;font-size:clamp(1.2rem,2.5vw,1.7rem);font-weight:800;
+    max-width:760px;margin-inline:auto;line-height:1.35}
+
+  /* ---------- Curriculum ---------- */
+  .curr{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;
+    background:rgba(232,185,35,.16);border:1px solid rgba(232,185,35,.16);border-radius:var(--r);overflow:hidden}
+  .ch{background:var(--ink);padding:22px 24px;display:flex;gap:16px;align-items:flex-start;transition:background .25s}
+  .ch:hover{background:var(--ink-2)}
+  .ch .n{font-family:"Anton";font-size:1.5rem;color:var(--gold-2);line-height:1;flex:none;min-width:1.6em}
+  .ch h3{font-size:1.02rem;color:#fff;font-weight:800;margin-bottom:3px}
+  .ch p{font-size:.86rem;color:var(--tx-light-mut);font-weight:500}
+
+  /* ---------- Preview ---------- */
+  .gallery{display:flex;gap:18px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;margin-inline:calc(var(--pad)*-1);padding-inline:var(--pad)}
+  .gallery::-webkit-scrollbar{height:7px}
+  .gallery::-webkit-scrollbar-thumb{background:rgba(11,26,51,.18);border-radius:999px}
+  .gallery img{flex:none;width:min(62vw,250px);scroll-snap-align:center;border-radius:12px;box-shadow:var(--shadow);
+    border:1px solid rgba(11,26,51,.08);height:auto;transition:transform .3s var(--ease)}
+  .gallery img:hover{transform:translateY(-6px) scale(1.02)}
+  .gallery-hint{font-size:.82rem;color:var(--tx-mut);margin-top:8px;font-weight:600}
+
+  /* ---------- Simulador interativo ---------- */
+  .sim{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,52px);align-items:center}
+  .sim-controls{display:flex;flex-direction:column;gap:24px}
+  .ctrl label{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;
+    color:var(--tx-light);margin-bottom:10px;font-size:.95rem}
+  .ctrl label b{font-family:"Manrope";color:var(--gold-2);font-weight:800;font-size:1.05rem}
+  .ctrl input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:999px;
+    background:rgba(234,240,241,.18);outline:none}
+  .ctrl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;
+    background:linear-gradient(180deg,var(--gold-2),var(--gold));cursor:pointer;border:3px solid var(--ink);
+    box-shadow:0 4px 12px rgba(232,185,35,.5)}
+  .ctrl input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;
+    background:var(--gold);cursor:pointer;border:3px solid var(--ink)}
+  .sim-result{background:linear-gradient(150deg,var(--ink-2),#0c2c20);border:1px solid rgba(232,185,35,.22);
+    border-radius:20px;padding:clamp(26px,4vw,38px);box-shadow:var(--shadow)}
+  .sim-result .cap{font-size:.8rem;font-weight:700;color:var(--tx-light-mut);text-transform:uppercase;
+    letter-spacing:.12em}
+  .sim-result .big{font-family:"Anton";font-size:clamp(2.4rem,7vw,3.6rem);color:var(--emerald-3);line-height:1;
+    margin:8px 0 4px}
+  .sim-bar{height:16px;border-radius:999px;overflow:hidden;display:flex;margin:22px 0 12px;
+    background:rgba(255,255,255,.08)}
+  .sim-bar .b-ap{background:rgba(234,240,241,.55)} .sim-bar .b-ju{background:linear-gradient(90deg,var(--emerald),var(--emerald-3))}
+  .sim-bar i{display:block;height:100%;transition:width .5s var(--ease)}
+  .sim-legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.84rem;font-weight:600;color:var(--tx-light)}
+  .sim-legend span{display:inline-flex;align-items:center;gap:7px}
+  .dot{width:11px;height:11px;border-radius:3px;flex:none}
+  .sim-note{font-size:.74rem;color:rgba(234,240,241,.5);margin-top:18px;font-weight:500}
+  .sim-cta{margin-top:26px}
+  @media(max-width:840px){.sim{grid-template-columns:1fr}.sim-result{order:-1}}
+
+  /* ---------- Benefits ---------- */
+  .ben-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px 30px;max-width:900px}
+  .ben{display:flex;gap:14px;align-items:flex-start}
+  .ben .ck{width:30px;height:30px;border-radius:50%;flex:none;display:grid;place-items:center;
+    background:linear-gradient(180deg,var(--emerald-3),var(--emerald));color:#fff}
+  .ben p{font-weight:600} .sec-dark .ben p{color:var(--tx-light)}
+
+  /* ---------- Author ---------- */
+  .author{display:grid;grid-template-columns:230px 1fr;gap:clamp(24px,4vw,46px);align-items:center}
+  .author-photo{border-radius:18px;overflow:hidden;box-shadow:var(--shadow);border:3px solid rgba(232,185,35,.4)}
+  .author h2{margin-bottom:.4em} .author p+p{margin-top:.8em}
+  @media(max-width:680px){.author{grid-template-columns:1fr;text-align:center}
+    .author-photo{max-width:220px;margin-inline:auto}}
+
+  /* ---------- Testimonials ---------- */
+  .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .quote{background:var(--paper);border-radius:var(--r);padding:26px 24px;border:1px solid rgba(11,26,51,.08);
+    box-shadow:0 1px 2px rgba(11,26,51,.04);transition:transform .3s var(--ease)}
+  .quote:hover{transform:translateY(-4px)}
+  .stars{color:var(--gold);letter-spacing:2px;margin-bottom:12px;font-size:1.05rem}
+  .quote p{font-weight:500;color:var(--tx-dark);font-style:italic}
+  .quote .who{margin-top:16px;font-weight:800;font-style:normal;font-size:.92rem}
+  .quote .who small{display:block;font-weight:600;color:var(--tx-mut);font-style:normal}
+
+  /* ---------- Offer ---------- */
+  .offer{background:linear-gradient(140deg,var(--ink) 0%,var(--ink-2) 55%,#0d3a2a 130%);color:var(--tx-light);
+    border-radius:24px;padding:clamp(32px,5vw,62px) clamp(24px,5vw,62px);text-align:center;position:relative;
+    overflow:hidden;box-shadow:var(--shadow)}
+  .offer::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% -20%,
+    rgba(232,185,35,.22),transparent 55%);pointer-events:none}
+  .offer .in{position:relative;z-index:2}
+  .offer h2{font-size:clamp(2rem,5vw,3.1rem);color:#fff;margin-bottom:.3em}
+  .offer .sub{color:var(--tx-light-mut);max-width:34em;margin:0 auto 18px;font-weight:500;font-size:1.05rem}
+  .price-row{display:inline-flex;align-items:baseline;gap:12px;margin:8px 0 24px;flex-wrap:wrap;justify-content:center}
+  .price-row .old{color:var(--tx-light-mut);text-decoration:line-through;font-size:1.1rem}
+  .price-row .now{font-family:"Anton";font-size:clamp(2.6rem,7vw,3.8rem);color:var(--gold-2);line-height:1}
+  .price-row .now small{font-size:.4em;color:var(--tx-light-mut);font-family:"Manrope";font-weight:700}
+  .urgency{margin-top:16px;font-size:.88rem;color:var(--gold-2);font-weight:700;display:inline-flex;
+    align-items:center;gap:8px}
+
+  /* trust band */
+  .trust-band{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:34px auto 0;max-width:760px}
+  .tb{display:flex;flex-direction:column;align-items:center;gap:9px;font-size:.82rem;font-weight:700;
+    color:var(--tx-light)}
+  .tb .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;
+    background:rgba(255,255,255,.06);border:1px solid rgba(232,185,35,.25);color:var(--gold-2)}
+  @media(max-width:620px){.trust-band{grid-template-columns:repeat(2,1fr);gap:22px 12px}}
+
+  /* payment strip */
+  .pay{margin-top:30px}
+  .pay .ttl{font-size:.82rem;font-weight:700;color:var(--tx-light-mut);display:inline-flex;align-items:center;
+    gap:8px;margin-bottom:14px}
+  .pay .ttl svg{color:var(--emerald-3)}
+  .pay-badges{display:flex;flex-wrap:wrap;gap:9px;justify-content:center}
+  .pb{height:34px;min-width:52px;padding:0 9px;border-radius:8px;background:#fff;display:flex;align-items:center;
+    justify-content:center;gap:5px;font-weight:800;font-size:.72rem;box-shadow:0 4px 12px -4px rgba(0,0,0,.35);
+    letter-spacing:.02em}
+  .pb svg{display:block}
+  .mc-a,.mc-b{width:17px;height:17px;border-radius:50%}
+  .mc-a{background:#EB001B} .mc-b{background:#F79E1B;margin-left:-7px;mix-blend-mode:multiply}
+
+  /* guarantee */
+  .guar{display:flex;align-items:center;gap:18px;max-width:620px;margin:30px auto 0;text-align:left;
+    background:rgba(255,255,255,.05);border:1px solid rgba(232,185,35,.25);border-radius:18px;padding:20px 24px}
+  .guar .seal{width:64px;height:64px;flex:none;border-radius:50%;display:grid;place-items:center;
+    background:radial-gradient(circle at 50% 35%,var(--gold-2),var(--gold-deep));color:#1c1403;
+    font-family:"Anton";font-size:.78rem;text-align:center;line-height:1;box-shadow:0 0 0 5px rgba(232,185,35,.18)}
+  .guar h4{font-size:1.02rem;color:#fff;margin-bottom:3px}
+  .guar p{font-size:.86rem;color:var(--tx-light-mut);font-weight:500}
+  @media(max-width:560px){.guar{flex-direction:column;text-align:center}}
+
+  /* ---------- FAQ ---------- */
+  .faq{max-width:760px;margin-inline:auto}
+  .faq details{border-bottom:1px solid rgba(11,26,51,.12);padding:6px 0}
+  .faq summary{list-style:none;cursor:pointer;padding:18px 4px;font-weight:800;font-size:1.05rem;display:flex;
+    justify-content:space-between;align-items:center;gap:16px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .pm{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
+    background:rgba(232,185,35,.16);color:var(--gold-deep);font-weight:800;transition:transform .3s}
+  .faq details[open] summary .pm{transform:rotate(45deg)}
+  .faq .ans{padding:0 4px 20px;color:var(--tx-mut);font-weight:500}
+
+  /* ---------- Footer ---------- */
+  .foot{background:var(--ink-3);color:var(--tx-light-mut);padding-block:46px 34px;font-size:.86rem}
+  .foot .brand .nm{font-size:1.05rem}
+  .foot .cols{display:flex;flex-wrap:wrap;gap:24px 60px;justify-content:space-between;align-items:flex-start;
+    margin-bottom:30px}
+  .foot .disc{font-size:.78rem;line-height:1.7;color:rgba(234,240,241,.5);
+    border-top:1px solid rgba(255,255,255,.08);padding-top:22px}
+  .foot a:hover{color:var(--gold-2)}
+
+  /* ---------- Sticky mobile CTA ---------- */
+  .mobile-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 14px;background:rgba(10,26,51,.95);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid rgba(232,185,35,.25);
+    transform:translateY(120%);transition:transform .35s var(--ease);display:none}
+  .mobile-cta .btn{width:100%}
+  .mobile-cta.show{transform:translateY(0)}
+  @media(max-width:720px){.mobile-cta{display:block}body{padding-bottom:80px}}
+
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .rv.in{opacity:1;transform:none}
+  :focus-visible{outline:3px solid var(--gold-2);outline-offset:3px;border-radius:6px}
+
+  @media(max-width:860px){
+    .hero .wrap{grid-template-columns:1fr;text-align:center}
+    .hero .lead{margin-inline:auto}
+    .hero-cta,.trust,.reassure{justify-content:center}
+    .hero-art{order:-1;margin-bottom:8px}
+    .book{width:min(62%,240px)}
+    .badge-1{left:2%} .badge-2{right:2%}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .rv{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOPBAR ============ -->
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Investment Beginners">
+      <span class="mono">IB</span><span class="nm">INVESTMENT<small>BEGINNERS</small></span>
+    </a>
+    <a class="btn btn-gold js-buy" data-cta="topbar" href="#">
+      <span class="full">Quero o guia</span><span class="arw">→</span>
+    </a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <svg class="growth" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true">
+    <defs><linearGradient id="gl" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#16A75E" stop-opacity="0"/>
+      <stop offset=".55" stop-color="#16A75E" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#E8B923"/></linearGradient></defs>
+    <path d="M0,560 C220,540 360,500 520,420 C700,330 760,250 920,150 C1010,92 1110,60 1200,40" fill="none" stroke="url(#gl)" stroke-width="3"/>
+    <path d="M0,560 C220,540 360,500 520,420 C700,330 760,250 920,150 C1010,92 1110,60 1200,40 L1200,600 L0,600 Z" fill="url(#gl)" opacity=".10"/>
+  </svg>
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow on-dark">Guia digital • do zero ao 1º investimento</span>
+      <h1 class="display">Aprenda a <span class="hl">investir do zero</span> e faça seu dinheiro <span class="grn">trabalhar por você</span></h1>
+      <p class="lead">Um guia direto, em português e sem economês, que te leva da estaca zero até montar sua primeira carteira — mesmo que você nunca tenha conseguido guardar um real.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold btn-lg js-buy" data-cta="hero" href="#">Quero meu acesso agora <span class="arw">→</span></a>
+        <a class="btn btn-ghost btn-lg" data-scroll href="#conteudo">Ver o que tem dentro</a>
+      </div>
+      <div class="reassure">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V5l-9-4z"/></svg>
+        Pagamento 100% seguro • todas as bandeiras • Pix • acesso imediato
+      </div>
+      <div class="trust">
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> 11 capítulos práticos</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Linguagem simples</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Garantia de 7 dias</span>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="book">
+        <img src="assets/img/cover.webp" alt="Capa do ebook Investment Beginners — guia completo do investidor iniciante" width="700" height="1228" fetchpriority="high">
+        <div class="badge-float badge-1"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 17h2v-7H3v7zm4 0h2V7H7v10zm4 0h2v-4h-2v4zm4 0h2V4h-2v13z"/></svg></span><span>Juros compostos<small>explicado fácil</small></span></div>
+        <div class="badge-float badge-2"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V5l-9-4z"/></svg></span><span>Sem cair em furada<small>os erros que custam caro</small></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stat rv"><div class="num">11</div><div class="lab">capítulos completos</div></div>
+    <div class="stat rv"><div class="num">+50</div><div class="lab">páginas práticas</div></div>
+    <div class="stat rv"><div class="num">1</div><div class="lab">tarde de leitura</div></div>
+    <div class="stat rv"><div class="num">100%</div><div class="lab">digital e imediato</div></div>
+  </div>
+</section>
+
+<!-- ============ DOR ============ -->
+<section class="sec sec-cream">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="eyebrow">Talvez você se identifique</span>
+      <h2 class="display">Investir parece coisa de quem <span class="em">já entende do assunto</span></h2>
+      <p>E aí o dinheiro fica parado na conta perdendo valor, ou some no fim do mês sem você saber pra onde foi.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card rv"><div class="q">?</div><p>Você quer começar a investir, mas não faz ideia de por onde começar.</p></div>
+      <div class="pain-card rv"><div class="q">?</div><p>Trava na hora de escolher entre tantas siglas: CDB, Tesouro, ações, fundos…</p></div>
+      <div class="pain-card rv"><div class="q">?</div><p>Tem medo de perder dinheiro e acaba deixando tudo parado na poupança.</p></div>
+      <div class="pain-card rv"><div class="q">?</div><p>Sente que ganha bem, mas no fim do mês nunca sobra nada pra guardar.</p></div>
+    </div>
+    <p class="pain-bridge rv">Não falta vontade. Falta um <span class="em">passo a passo simples</span> que comece onde você está — do absoluto zero.</p>
+  </div>
+</section>
+
+<!-- ============ CONTEÚDO ============ -->
+<section class="sec sec-dark" id="conteudo">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow on-dark">O que você vai aprender</span>
+      <h2 class="display">11 capítulos que te tiram do zero<br>e te colocam <span class="em">no controle</span></h2>
+      <p>Cada capítulo foi escrito pensando em quem está começando agora — direto ao ponto, com exemplos do dia a dia.</p>
+    </div>
+    <div class="curr">
+      <div class="ch"><span class="n">00</span><div><h3>Qualquer pessoa pode investir</h3><p>Por que começar agora — e por que o medo trava mais gente do que a falta de dinheiro.</p></div></div>
+      <div class="ch"><span class="n">01</span><div><h3>O que são investimentos?</h3><p>Os conceitos essenciais sem economês: risco, retorno, liquidez e tempo.</p></div></div>
+      <div class="ch"><span class="n">02</span><div><h3>Organize sua vida financeira</h3><p>Como enxergar pra onde seu dinheiro vai e sobrar todo mês — antes de investir.</p></div></div>
+      <div class="ch"><span class="n">03</span><div><h3>O poder dos juros compostos</h3><p>A força que faz o dinheiro crescer sozinho com o tempo, explicada de forma visual.</p></div></div>
+      <div class="ch"><span class="n">04</span><div><h3>Reserva de emergência</h3><p>Quanto guardar, onde deixar e por que essa é a sua primeira prioridade.</p></div></div>
+      <div class="ch"><span class="n">05</span><div><h3>Renda fixa para iniciantes</h3><p>Tesouro Direto, CDB, LCI/LCA: o terreno mais seguro pra dar o primeiro passo.</p></div></div>
+      <div class="ch"><span class="n">06</span><div><h3>Renda variável para iniciantes</h3><p>Ações e fundos imobiliários sem mistério — e como entrar com cautela.</p></div></div>
+      <div class="ch"><span class="n">07</span><div><h3>Como escolher seus investimentos</h3><p>Descubra seu perfil de investidor e o que faz sentido pra cada objetivo.</p></div></div>
+      <div class="ch"><span class="n">08</span><div><h3>Como montar sua primeira carteira</h3><p>Um modelo prático pra distribuir seu dinheiro com equilíbrio.</p></div></div>
+      <div class="ch"><span class="n">09</span><div><h3>Erros que fazem iniciantes perder dinheiro</h3><p>As armadilhas mais comuns — e como passar longe de cada uma.</p></div></div>
+      <div class="ch"><span class="n">★</span><div><h3>As 10 regras de ouro</h3><p>Os princípios que separam quem prospera de quem só "tenta" investir.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PREVIEW ============ -->
+<section class="sec sec-cream">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="eyebrow">Espia por dentro</span>
+      <h2 class="display">Um material feito pra <span class="em">ser fácil de ler</span></h2>
+      <p>Diagramado com calma, com gráficos e exemplos que prendem do começo ao fim.</p>
+    </div>
+    <div class="gallery rv">
+      <img src="assets/img/prev-1.webp" alt="Página de abertura do guia" loading="lazy">
+      <img src="assets/img/prev-2.webp" alt="Capítulo: qualquer pessoa pode investir" loading="lazy">
+      <img src="assets/img/prev-3.webp" alt="Capítulo sobre juros compostos com gráfico" loading="lazy">
+      <img src="assets/img/prev-4.webp" alt="Capítulo: como escolher seus investimentos" loading="lazy">
+      <img src="assets/img/prev-5.webp" alt="As 10 regras de ouro do investidor" loading="lazy">
+    </div>
+    <p class="gallery-hint rv">← arraste para o lado para ver mais páginas →</p>
+  </div>
+</section>
+
+<!-- ============ SIMULADOR INTERATIVO ============ -->
+<section class="sec sec-dark">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow on-dark">O que você vai dominar no Cap. 3</span>
+      <h2 class="display">Veja o poder dos <span class="em">juros compostos</span></h2>
+      <p>Mexa nos controles e descubra o quanto pequenos aportes viram, com o tempo. É exatamente esse raciocínio que o guia te ensina a colocar em prática.</p>
+    </div>
+    <div class="sim rv">
+      <div class="sim-controls">
+        <div class="ctrl">
+          <label>Aporte inicial <b id="v-ini">R$ 1.000</b></label>
+          <input id="s-ini" type="range" min="0" max="20000" step="500" value="1000">
+        </div>
+        <div class="ctrl">
+          <label>Aporte por mês <b id="v-men">R$ 300</b></label>
+          <input id="s-men" type="range" min="0" max="3000" step="50" value="300">
+        </div>
+        <div class="ctrl">
+          <label>Por quanto tempo <b id="v-ano">10 anos</b></label>
+          <input id="s-ano" type="range" min="1" max="35" step="1" value="10">
+        </div>
+        <div class="ctrl">
+          <label>Rendimento ao ano <b id="v-tax">10%</b></label>
+          <input id="s-tax" type="range" min="2" max="15" step="0.5" value="10">
+        </div>
+      </div>
+      <div class="sim-result">
+        <div class="cap">Você teria, no fim</div>
+        <div class="big" id="r-total">R$ 0</div>
+        <div class="sim-bar"><i class="b-ap" id="bar-ap"></i><i class="b-ju" id="bar-ju"></i></div>
+        <div class="sim-legend">
+          <span><i class="dot" style="background:rgba(234,240,241,.55)"></i> Você investiu <b id="r-ap" style="margin-left:4px">R$ 0</b></span>
+          <span><i class="dot" style="background:var(--emerald-3)"></i> Renderam <b id="r-ju" style="margin-left:4px">R$ 0</b></span>
+        </div>
+        <p class="sim-note">Simulação ilustrativa com juros compostos. Não é promessa de rentabilidade — rendimentos reais variam conforme o investimento e o mercado.</p>
+        <div class="sim-cta"><a class="btn btn-gold js-buy" data-cta="simulador" href="#">Quero aprender a fazer isso <span class="arw">→</span></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFÍCIOS ============ -->
+<section class="sec sec-cream">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">A transformação</span>
+      <h2 class="display">Depois de ler, você vai conseguir…</h2>
+    </div>
+    <div class="ben-list">
+      <div class="ben rv"><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span><p>Entender pra onde vai o seu dinheiro e fazer sobrar todo mês.</p></div>
+      <div class="ben rv"><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span><p>Montar sua reserva de emergência com tranquilidade.</p></div>
+      <div class="ben rv"><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span><p>Fazer seu primeiro investimento sabendo exatamente o que está fazendo.</p></div>
+      <div class="ben rv"><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span><p>Diferenciar renda fixa de renda variável sem se enrolar.</p></div>
+      <div class="ben rv"><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span><p>Montar uma carteira equilibrada de acordo com o seu perfil.</p></div>
+      <div class="ben rv"><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span><p>Evitar os erros que fazem a maioria dos iniciantes desistir.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUTOR ============ -->
+<!-- ★ EDITAR ★ : nome, bio e foto (assets/img/author.webp) -->
+<section class="sec sec-dark">
+  <div class="wrap">
+    <div class="author rv">
+      <div class="author-photo"><img src="assets/img/author.webp" alt="Autor do guia Investment Beginners" loading="lazy"></div>
+      <div>
+        <span class="eyebrow on-dark">Quem escreveu</span>
+        <h2 class="display">Feito por quem <span class="em">já começou do zero</span></h2>
+        <p>Este guia nasceu da ideia de simplificar o que pra muita gente parece complicado. Nada de termos difíceis ou promessas mirabolantes — só o caminho que funciona pra quem está dando os primeiros passos.</p>
+        <p>A proposta é uma só: te dar clareza pra tomar decisões melhores com o seu dinheiro, hoje.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<!-- ★ EDITAR ★ : troque por depoimentos reais. Não invente prova social. -->
+<section class="sec sec-cream">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="eyebrow">Quem leu, recomenda</span>
+      <h2 class="display">O que estão dizendo</h2>
+    </div>
+    <div class="quotes">
+      <div class="quote rv"><div class="stars">★★★★★</div><p>"Sempre achei que investir não era pra mim. Em uma tarde de leitura eu já tinha feito meu primeiro Tesouro Direto."</p><div class="who">Camila R.<small>São Paulo, SP</small></div></div>
+      <div class="quote rv"><div class="stars">★★★★★</div><p>"Finalmente alguém explicou juros compostos de um jeito que eu entendi. Mudou a forma como eu olho pro meu dinheiro."</p><div class="who">Rafael M.<small>Belo Horizonte, MG</small></div></div>
+      <div class="quote rv"><div class="stars">★★★★★</div><p>"Direto ao ponto, sem enrolação. Em uma semana montei minha reserva e comecei a investir o que sobra."</p><div class="who">Júlia A.<small>Curitiba, PR</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OFERTA + CONFIANÇA + PAGAMENTO ============ -->
+<section class="sec sec-cream" id="oferta">
+  <div class="wrap">
+    <div class="offer rv">
+      <div class="in">
+        <span class="eyebrow on-dark">Comece hoje mesmo</span>
+        <h2 class="display">Tudo o que você precisa pra dar o primeiro passo</h2>
+        <p class="sub">Acesso imediato ao guia completo Investment Beginners — os 11 capítulos + as 10 regras de ouro do investidor.</p>
+        <!-- ★ EDITAR ★ : valores -->
+        <div class="price-row">
+          <span class="old">De R$ 97</span>
+          <span class="now"><small>por</small> R$ 27<small>,00</small></span>
+        </div>
+        <div><a class="btn btn-gold btn-lg pulse js-buy" data-cta="oferta" href="#">Garantir meu acesso agora <span class="arw">→</span></a></div>
+        <div class="urgency">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 11h-2V6h2v7z"/></svg>
+          Acesso liberado na hora, direto no seu e-mail
+        </div>
+
+        <!-- trust band -->
+        <div class="trust-band">
+          <div class="tb"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V5l-9-4z"/></svg></span>Pagamento<br>100% seguro</div>
+          <div class="tb"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></span>Acesso<br>imediato</div>
+          <div class="tb"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V5l-9-4zm-1 14-3.5-3.5 1.4-1.4L11 12.2l4.6-4.6 1.4 1.4z"/></svg></span>Garantia<br>de 7 dias</div>
+          <div class="tb"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg></span>Suporte<br>por e-mail</div>
+        </div>
+
+        <!-- payment brands -->
+        <div class="pay">
+          <span class="ttl"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V5l-9-4z"/></svg> Aceitamos todas as bandeiras</span>
+          <div class="pay-badges">
+            <span class="pb" style="color:#1A1F71;font-style:italic;font-size:.84rem">VISA</span>
+            <span class="pb" title="Mastercard"><span class="mc-a"></span><span class="mc-b"></span></span>
+            <span class="pb" style="color:#000"><span style="color:#EF4123">e</span><span style="color:#00A4E0">l</span><span style="color:#FCB418">o</span></span>
+            <span class="pb" style="color:#016FD0">AMEX</span>
+            <span class="pb" style="color:#B3131B">Hipercard</span>
+            <span class="pb" style="color:#32BCAD">◆ Pix</span>
+            <span class="pb" style="color:#3A4A5C;gap:2px"><svg width="20" height="16" viewBox="0 0 20 16"><g fill="#3A4A5C"><rect x="0" width="2" height="16"/><rect x="3" width="1" height="16"/><rect x="6" width="3" height="16"/><rect x="10" width="1" height="16"/><rect x="12" width="2" height="16"/><rect x="16" width="1" height="16"/><rect x="18" width="2" height="16"/></g></svg>Boleto</span>
+          </div>
+        </div>
+
+        <!-- guarantee -->
+        <div class="guar">
+          <div class="seal">7 DIAS</div>
+          <div>
+            <h4>Garantia incondicional de 7 dias</h4>
+            <p>Leu e não foi o que esperava? É só pedir reembolso em até 7 dias e devolvemos 100% do valor. O risco é todo nosso.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec sec-cream" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="eyebrow">Perguntas frequentes</span>
+      <h2 class="display">Ainda na dúvida?</h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>É pra quem é totalmente iniciante? <span class="pm">+</span></summary>
+        <div class="ans">Sim. O guia começa do absoluto zero, supondo que você nunca investiu nada na vida. Cada conceito é explicado com calma e em linguagem simples.</div></details>
+      <details><summary>Como funciona o pagamento? É seguro? <span class="pm">+</span></summary>
+        <div class="ans">100% seguro. Você paga por cartão (todas as bandeiras), Pix ou boleto, em ambiente criptografado. O acesso é liberado automaticamente após a confirmação.</div></details>
+      <details><summary>Preciso de muito dinheiro pra começar? <span class="pm">+</span></summary>
+        <div class="ans">Não. Você vai aprender a começar com o que tem hoje. O foco é construir o hábito e o conhecimento — o valor inicial é o de menos.</div></details>
+      <details><summary>Como eu recebo o material? <span class="pm">+</span></summary>
+        <div class="ans">É um ebook digital. Após a compra, o acesso é liberado na hora e enviado pro seu e-mail. Você lê no celular, tablet ou computador.</div></details>
+      <details><summary>E se eu não gostar? <span class="pm">+</span></summary>
+        <div class="ans">Você tem 7 dias de garantia incondicional. Se não for o que esperava, pede reembolso e devolvemos 100% do valor.</div></details>
+      <details><summary>Isso é recomendação de investimento? <span class="pm">+</span></summary>
+        <div class="ans">Não. É um material educativo. O objetivo é te dar conhecimento pra tomar suas próprias decisões com mais clareza — sem indicar ativos específicos nem prometer rentabilidade.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <a class="brand" href="#"><span class="mono">IB</span><span class="nm">INVESTMENT<small>BEGINNERS</small></span></a>
+      <div style="max-width:30em">Conteúdo educativo para quem quer começar a investir com mais segurança e clareza.</div>
+    </div>
+    <p class="disc">
+      <strong>Aviso legal:</strong> O Investment Beginners é um produto digital de caráter estritamente educativo e informativo. O conteúdo não constitui recomendação de investimento, consultoria financeira, oferta ou promessa de rentabilidade. Todo investimento envolve riscos e resultados passados não garantem resultados futuros. As decisões financeiras são de responsabilidade exclusiva do leitor.<br><br>
+      Este site não é afiliado, associado, autorizado ou de qualquer forma oficialmente relacionado ao Facebook/Meta ou ao Google. Os nomes e marcas citados pertencem aos seus respectivos donos.<br><br>
+      © <span id="yr"></span> Investment Beginners. Todos os direitos reservados.
+    </p>
+  </div>
+</footer>
+
+<!-- ============ STICKY MOBILE CTA ============ -->
+<div class="mobile-cta" id="mcta">
+  <a class="btn btn-gold js-buy" data-cta="mobile" href="#">Quero começar a investir <span class="arw">→</span></a>
+</div>
+
+<script>
+/* ============================================================
+   ★ EDITAR ★  — DESTINO DA VENDA (página de vendas / checkout)
+   Troque pela URL real. Todos os botões de compra apontam pra cá.
+   ============================================================ */
+const CHECKOUT_URL = "https://SUA-PAGINA-DE-VENDAS.com";  // <-- COLE AQUI
+
+(function(){
+  // Botões de compra -> checkout + evento de conversão
+  document.querySelectorAll('.js-buy').forEach(a=>{
+    a.setAttribute('href', CHECKOUT_URL);
+    a.addEventListener('click', ()=>{
+      try{ if(window.fbq) fbq('track','InitiateCheckout'); }catch(e){}
+      try{ if(window.gtag) gtag('event','begin_checkout',{source:a.dataset.cta||'cta'}); }catch(e){}
+    });
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.14});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // Sticky mobile CTA após o hero
+  const hero=document.querySelector('.hero'), mcta=document.getElementById('mcta');
+  if(hero){ new IntersectionObserver((es)=>{es.forEach(e=>mcta.classList.toggle('show',!e.isIntersecting))},{threshold:0}).observe(hero); }
+
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  /* ---------- Simulador de juros compostos ---------- */
+  let fmt0;
+  try{
+    const fmt=new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
+    fmt0=v=>fmt.format(Math.round(v));
+  }catch(e){
+    fmt0=v=>'R$ '+Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+  }
+  const $=id=>document.getElementById(id);
+  const S={ini:$('s-ini'),men:$('s-men'),ano:$('s-ano'),tax:$('s-tax')};
+  const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  let raf=null;
+
+  function calc(){
+    const P=+S.ini.value, PM=+S.men.value, anos=+S.ano.value, taxa=+S.tax.value/100;
+    const i=Math.pow(1+taxa,1/12)-1, n=anos*12;
+    const fv = P*Math.pow(1+i,n) + (i>0 ? PM*((Math.pow(1+i,n)-1)/i) : PM*n);
+    const aportado = P + PM*n;
+    return {fv, aportado, juros:Math.max(0,fv-aportado)};
+  }
+  function paint(){
+    $('v-ini').textContent=fmt0(+S.ini.value);
+    $('v-men').textContent=fmt0(+S.men.value);
+    $('v-ano').textContent=(+S.ano.value)+(S.ano.value==1?' ano':' anos');
+    $('v-tax').textContent=(+S.tax.value)+'%';
+    const r=calc();
+    $('r-ap').textContent=fmt0(r.aportado);
+    $('r-ju').textContent=fmt0(r.juros);
+    const pAp=r.fv>0?(r.aportado/r.fv*100):0;
+    $('bar-ap').style.width=pAp+'%'; $('bar-ju').style.width=(100-pAp)+'%';
+    // count-up no total
+    const target=r.fv, el=$('r-total');
+    if(reduce){ el.textContent=fmt0(target); return; }
+    const start=parseFloat(el.dataset.v||0), t0=performance.now(), dur=550;
+    if(raf) cancelAnimationFrame(raf);
+    (function tick(t){
+      const p=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-p,3), val=start+(target-start)*e;
+      el.textContent=fmt0(val); el.dataset.v=val;
+      if(p<1) raf=requestAnimationFrame(tick);
+    })(t0);
+  }
+  Object.values(S).forEach(s=>s&&s.addEventListener('input',paint));
+  paint();
+})();
+</script>
+</body>
+</html>
