@@ -34,10 +34,25 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- ============================================================
-     ★ EDITAR ★  PIXELS (tráfego pago) — cole Meta Pixel / Google Ads aqui.
-     Os botões de compra já disparam InitiateCheckout / begin_checkout.
-     ============================================================ -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '884826468006908');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=884826468006908&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- ★ EDITAR ★ : (opcional) cole aqui o Google Ads / GA4 (gtag.js).
+     Os botões de compra já disparam InitiateCheckout (Meta) e begin_checkout (Google). -->
 
 <style>
   :root{
@@ -258,6 +273,7 @@
   .price-row .now small{font-size:.4em;color:var(--tx-light-mut);font-family:"Manrope";font-weight:700}
   .urgency{margin-top:16px;font-size:.88rem;color:var(--gold-2);font-weight:700;display:inline-flex;
     align-items:center;gap:8px}
+  .pay-line{margin-top:10px;font-size:.92rem;color:var(--tx-light-mut);font-weight:600}
 
   /* trust band */
   .trust-band{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:34px auto 0;max-width:760px}
@@ -560,11 +576,13 @@
         <span class="eyebrow on-dark">Comece hoje mesmo</span>
         <h2 class="display">Tudo o que você precisa pra dar o primeiro passo</h2>
         <p class="sub">Acesso imediato ao guia completo Investment Beginners — os 11 capítulos + as 10 regras de ouro do investidor.</p>
-        <!-- ★ EDITAR ★ : valores -->
+        <!-- ★ EDITAR ★ : preço. Se tiver um valor-âncora REAL (ex.: era R$97),
+             descomente a linha "old" abaixo — não invente preço cheio (Meta reprova / CDC). -->
         <div class="price-row">
-          <span class="old">De R$ 97</span>
-          <span class="now"><small>por</small> R$ 27<small>,00</small></span>
+          <!-- <span class="old">De R$ 97</span> -->
+          <span class="now"><small>por apenas</small> R$ 36<small>,90</small></span>
         </div>
+        <p class="pay-line">à vista no Pix ou parcelado no cartão</p>
         <div><a class="btn btn-gold btn-lg pulse js-buy" data-cta="oferta" href="#">Garantir meu acesso agora <span class="arw">→</span></a></div>
         <div class="urgency">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 11h-2V6h2v7z"/></svg>
@@ -655,7 +673,7 @@
    ★ EDITAR ★  — DESTINO DA VENDA (página de vendas / checkout)
    Troque pela URL real. Todos os botões de compra apontam pra cá.
    ============================================================ */
-const CHECKOUT_URL = "https://SUA-PAGINA-DE-VENDAS.com";  // <-- COLE AQUI
+const CHECKOUT_URL = "https://pay.kiwify.com.br/IIur0O9";  // Kiwify — checkout do Investment Beginners
 
 (function(){
   // Botões de compra -> checkout + evento de conversão
