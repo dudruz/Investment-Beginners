@@ -54,6 +54,8 @@ src="https://www.facebook.com/tr?id=884826468006908&ev=PageView&noscript=1"
 <!-- ★ EDITAR ★ : (opcional) cole aqui o Google Ads / GA4 (gtag.js).
      Os botões de compra já disparam InitiateCheckout (Meta) e begin_checkout (Google). -->
 
+<script>document.documentElement.classList.add('js');</script>
+
 <style>
   :root{
     --ink:#0A1A33; --ink-2:#0E2342; --ink-3:#07142a;
@@ -334,8 +336,9 @@ src="https://www.facebook.com/tr?id=884826468006908&ev=PageView&noscript=1"
   .mobile-cta.show{transform:translateY(0)}
   @media(max-width:720px){.mobile-cta{display:block}body{padding-bottom:80px}}
 
-  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-  .rv.in{opacity:1;transform:none}
+  /* reveal só fica escondido quando o JS está ativo (sem JS, mostra tudo) */
+  .js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .js .rv.in{opacity:1;transform:none}
   :focus-visible{outline:3px solid var(--gold-2);outline-offset:3px;border-radius:6px}
 
   @media(max-width:860px){
@@ -346,9 +349,12 @@ src="https://www.facebook.com/tr?id=884826468006908&ev=PageView&noscript=1"
     .book{width:min(62%,240px)}
     .badge-1{left:2%} .badge-2{right:2%}
   }
+  /* Reduzir movimento: corta o movimento contínuo (float do livro/badges, pulse do botão)
+     e a rolagem suave, mas mantém os fades e o hover pra página não ficar "morta". */
   @media(prefers-reduced-motion:reduce){
-    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-    .rv{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+    .book,.badge-float,.pulse{animation:none!important}
+    .js .rv{transform:none}
   }
 </style>
 </head>
@@ -685,13 +691,19 @@ const CHECKOUT_URL = "https://pay.kiwify.com.br/IIur0O9";  // Kiwify — checkou
     });
   });
 
-  // Reveal on scroll
-  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.14});
-  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  // Reveal on scroll (com fallback se o navegador não suportar IntersectionObserver)
+  const hasIO = 'IntersectionObserver' in window;
+  const rvs = document.querySelectorAll('.rv');
+  if(hasIO){
+    const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.14});
+    rvs.forEach(el=>io.observe(el));
+  }else{
+    rvs.forEach(el=>el.classList.add('in'));
+  }
 
   // Sticky mobile CTA após o hero
   const hero=document.querySelector('.hero'), mcta=document.getElementById('mcta');
-  if(hero){ new IntersectionObserver((es)=>{es.forEach(e=>mcta.classList.toggle('show',!e.isIntersecting))},{threshold:0}).observe(hero); }
+  if(hero && hasIO){ new IntersectionObserver((es)=>{es.forEach(e=>mcta.classList.toggle('show',!e.isIntersecting))},{threshold:0}).observe(hero); }
 
   document.getElementById('yr').textContent=new Date().getFullYear();
 
